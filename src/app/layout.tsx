@@ -16,7 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="p-2 bg-accent">
+          <a href="" className="text-primary">Trelllo</a>
+        </header>
+        <main className="p-8">
+        {children}
+        </main>
+        </body>
     </html>
   );
 }
