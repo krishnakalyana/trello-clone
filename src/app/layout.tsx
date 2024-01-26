@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="p-2 bg-accent">
+        <header className="p-4 bg-accent">
           <a href="" className="text-primary">Trelllo</a>
         </header>
         <main className="p-8">
