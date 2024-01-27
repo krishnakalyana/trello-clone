@@ -1,24 +1,37 @@
+"use client"
+import { useState } from "react";
 import NewColumnForm from "../forms/NewColumnForm";
-import { Card } from "../ui/card";
-import Columns from "./Columns";
-const columns = [
-    {id:"abcd",name:"todo",index:"0"},
-    {id:"cdef",name:"in progress",index:"1"},
-    {id:"efgh",name:"done",index:"2"},
+import Column from "./Column";
+const defaultColumns = [
+    {id:"col1",name:"todo",index:"0"},
+    {id:"col2",name:"in progress",index:"1"},
+    {id:"col3",name:"done",index:"2"},
 ]
 export type CardType = {
-    name: String,
-    id: String,
-    order:Number
+    name: string;
+    id: string | number;
+    index: number;
+    columnId: string;
 }
-const cards = [
-    {id:"1",name:"task 1",order:"0",columnId:"abcd"},
-    {id:"2",name:"task 2",order:"1",columnId:"cdef"},
-    {id:"3",name:"task 3",order:"2",columnId:"efgh"},
+const defaultCards = [
+    {id:"1",name:"task 1",index:"1",columnId:"col1"},
+    {id:"4",name:"task 4",index:"2",columnId:"col1"},
+    {id:"2",name:"task 2",index:"3",columnId:"col2"},
+    {id:"3",name:"task 3",index:"4",columnId:"col3"},
 ]
-export default function Board (){
+export default function Board() {
+    const [cards, setCards] = useState(defaultCards)
+    const [columns,setColumns]=useState(defaultColumns)
     return <div className="flex gap-4">
-        {columns.map(column => { return <Columns {...column} cards={cards}  />})}
+        {columns.map(column => {
+            return <Column key={column.id} {...column} setCards={setCards}
+                cards={
+                    cards
+                    .sort((a, b) => a.index - b.index)
+                    .filter(c => c.columnId === column.id)
+                }
+            />
+        })}
         <NewColumnForm />
     </div>
 }
