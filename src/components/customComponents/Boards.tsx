@@ -1,3 +1,3 @@
-export default const Boards = () => {
+export default function Boards  ()  {
     return <div>hey</div>
 }
