@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^2.1.0",
+    "@liveblocks/node": "^1.9.7",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
+    "@types/uniqid": "^5.3.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.315.0",
@@ -23,7 +25,8 @@
     "react-sortablejs": "^6.1.4",
     "sortablejs": "^1.15.2",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
